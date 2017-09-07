@@ -1,0 +1,54 @@
+[user]
+	name = Shankar
+	email = callshank_78@yahoo.com
+ 
+[branch]
+  autosetupmerge = true
+ 
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+ 
+[color]
+  ui = auto
+ 
+  [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+  [color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+  [color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+ 
+[core]
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+ 
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+	show = log --graph --all --decorate
+	shows = log --graph --all --decorate
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[merge]
+	tool = kdiff3
+[gpg]
+	program = gpg1
+[mergetool "kdiff3"]
+	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
