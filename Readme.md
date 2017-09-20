@@ -205,9 +205,10 @@ git pull -> it will fetch and merge any new changes to your master branch and mo
 
 ### git merge vs Rebase
 
+```
 After fetch, if the state of git log looks like below
 
-- o - o - o - H - A - B - C (master)
+- - o - o - o - H - A - B - C (master)
                \
                 P - Q - R (origin/master)
 
@@ -221,4 +222,4 @@ On Rebase:
 
 - o - o - o - H - P - Q - R - A' - B' - C' (master)
                           |
-                          (origin/master)
+                          (origin/master)```
