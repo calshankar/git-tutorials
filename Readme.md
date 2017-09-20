@@ -181,8 +181,44 @@ If you don't have any conflicting changes that you want merge & you don't want t
  Now to push/expose branch from local to remote 
 + git push origin <branch name> --> It's going to create a new branch coming over to remote or GitHub. You should now have a new branch on the repo
 
- DELETING & COPYING BRANCH
+### DELETING & COPYING BRANCH
 
 + git push origin <branch>:<copy of branch> --> creates copy of branch in remote or GitHub
 
 + git push origin :<branch>  --> You just have to Leave local branch name empty, put a colon and then specify that remote branch name
+
+### Additional option with diff
+
++ git diff HEAD~1...   
+
++ git diff --name-status origin/<branch name>  -> from the checked-out branch to remote branch
+
++ git diff --stat --color <branch name> origin/<branch name>  -> diff between local & remote branch
+
++ git difftool <commit id’s> <commit id’s>  -> Diff between 2 commits
+
+### Git Fetch vs pull
+
+git fetch -> it will just fetch all the changes in the remote repository (GitHub) and move the origin/master pointer to HEAD. The local branch will keep pointing to where it has.
+
+git pull -> it will fetch and merge any new changes to your master branch and move the pointer to HEAD.
+
+### git merge vs Rebase
+
+After fetch, if the state of git log looks like below
+
+- o - o - o - H - A - B - C (master)
+               \
+                P - Q - R (origin/master)
+
+If you merge at this point without any conflicts, you end up with this:
+
+- o - o - o - H - A - B - C - X (master)
+               \             /
+                P - Q - R --- (origin/master)
+		
+On Rebase:		
+
+- o - o - o - H - P - Q - R - A' - B' - C' (master)
+                          |
+                          (origin/master)
